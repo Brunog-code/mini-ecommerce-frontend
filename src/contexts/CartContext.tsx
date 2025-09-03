@@ -33,22 +33,37 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         const existingItem = state.find((item) => item.id == action.product.id);
 
         if (existingItem) {
-          return state.map((item) =>
+          const updateItem = state.map((item) =>
             item.id == action.product.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
           );
+          localStorage.setItem("cart", JSON.stringify(updateItem));
+          return updateItem;
         }
+
+        //incluir no localStorage
+        localStorage.setItem(
+          "cart",
+          JSON.stringify([...state, action.product])
+        );
 
         return [...state, action.product];
       case "delete":
-        return state.filter((item) => item.id !== action.id);
+        const cartItemDeleted = state.filter((item) => item.id !== action.id);
+
+        //deletar do localSorage
+        localStorage.setItem("cart", JSON.stringify(cartItemDeleted));
+        return cartItemDeleted;
+
       default:
         return state;
     }
   };
 
-  const [cart, dispatch] = useReducer(handleItemsCart, []);
+  const [cart, dispatch] = useReducer(handleItemsCart, [], () =>
+    JSON.parse(localStorage.getItem("cart") || "[]")
+  );
 
   const addToCart = (product: CartItem) => {
     dispatch({ type: "add", product });

@@ -54,11 +54,7 @@ export const Navbar = () => {
       }`}
     >
       {/* nav dispositivos >=md */}
-      <nav
-        className={`h-[100%] flex justify-between items-center ${
-          drawerOpen ? "px-2" : "px-5"
-        }`}
-      >
+      <nav className="h-[100%] flex justify-between items-center px-5">
         {/* Logo */}
         <h1 className="text-white font-bold">Dev shop</h1>
 
@@ -168,14 +164,14 @@ export const Navbar = () => {
 
             <div>
               <div className=" flex flex-col justify-center items-center text-gray-500">
-                <AccountCircleIcon sx={{ fontSize: 40 }} />
-                <span>Bruno Gonçalves</span>
-                <small>bruno@gmail.com</small>
+                <AccountCircleIcon sx={{ fontSize: 60 }} />
+                <span className="text-xl">Bruno Gonçalves</span>
+                <span>bruno@gmail.com</span>
                 <div className="mt-2 flex flex-col justify-center items-center w-full">
-                  <span className="p-1 cursor-pointer text-center w-full hover:bg-blue-500/50 hover:shadow-md hover:text-white">
+                  <span className="p-1 cursor-pointer text-center w-full hover:bg-blue-500/50 hover:shadow-md hover:text-white text-lg">
                     Minha conta
                   </span>
-                  <span className="p-1 cursor-pointer w-full text-center hover:bg-blue-500/50 hover:shadow-md hover:text-white">
+                  <span className="p-1 cursor-pointer w-full text-center hover:bg-blue-500/50 hover:shadow-md hover:text-white  text-lg">
                     Sair
                   </span>
                 </div>
@@ -190,7 +186,7 @@ export const Navbar = () => {
               >
                 <Link to="/" className="flex items-center justify-center">
                   <HomeIcon />
-                  <span className="ml-1">Home</span>
+                  <span className="ml-1 text-xl">Home</span>
                 </Link>
               </li>
               <li
@@ -209,7 +205,7 @@ export const Navbar = () => {
                       </span>
                     )}
                   </div>
-                  <span className="ml-1">Carrinho</span>
+                  <span className="ml-1  text-xl">Carrinho</span>
                 </Link>
               </li>
             </ul>

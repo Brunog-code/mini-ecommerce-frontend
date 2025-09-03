@@ -1,3 +1,5 @@
 export * from './Navbar'
 export * from './Footer'
 export * from './CardProduct'
+export * from './CartItemCard'
+export * from './Slider'

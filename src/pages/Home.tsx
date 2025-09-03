@@ -1,4 +1,4 @@
-import { CardProduct } from "../components";
+import { CardProduct, Slider } from "../components";
 import { useState } from "react";
 
 interface IproductsData {
@@ -34,7 +34,7 @@ export const Home = () => {
       price: 3299,
       img: "https://m.media-amazon.com/images/I/51gEkEbXrHL.jpg",
       description: "Notebook potente com processador moderno e SSD rápido.",
-      category: "Computadores & Periféricos",
+      category: "Computadores",
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ export const Home = () => {
       price: 159,
       img: "https://b2bleonorashop.vtexassets.com/arquivos/ids/161273/mouse-gamer-rgb-6-botoes-letron-74305-1.png?v=638067298216570000",
       description: "Mouse com iluminação RGB e alta precisão.",
-      category: "Computadores & Periféricos",
+      category: "Periféricos",
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ export const Home = () => {
       price: 449,
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrFUSCPxgCO2atkREsIGqCPJIcdEk3mmtZNUEdMsJtcijghY7JP_r9pcsrVGfDz6fYrXc&usqp=CAU",
       description: "Teclado mecânico com switches silenciosos.",
-      category: "Computadores & Periféricos",
+      category: "Periféricos",
     },
     {
       id: 6,
@@ -122,7 +122,7 @@ export const Home = () => {
       price: 1199,
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf38uWzXrhNFuKPDE6xYHQso9AxNTt7zPODG_8flQ7D371yaPHLg_Anz6OkiKkotejol4&usqp=CAU",
       description: "Impressora, scanner e copiadora em um único equipamento.",
-      category: "Computadores & Periféricos",
+      category: "Periféricos",
     },
     {
       id: 15,
@@ -146,9 +146,11 @@ export const Home = () => {
 
   return (
     <div className="p-4">
+      <Slider />
+
       {/* menu produtos */}
-      <section className="mb-5 text-gray-500 font-semibold shadow-md">
-        <ul className="w-full border border-gray-400  bg-gray-100 p-3 rounded-md grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <section className="mb-5 text-gray-500 font-semibold  ">
+        <ul className="w-full border border-gray-400 shadow-md bg-gray-100 p-3 rounded-md overflow-hidden grid grid-cols-2 sm:grid-cols-3 gap-2">
           {categories.map((category) => (
             <li
               className={`hover:bg-blue-500/50 hover:text-white p-1 rounded-md cursor-pointer ${
