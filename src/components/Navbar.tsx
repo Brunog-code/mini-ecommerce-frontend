@@ -56,7 +56,7 @@ export const Navbar = () => {
       {/* nav dispositivos >=md */}
       <nav className="h-[100%] flex justify-between items-center px-5">
         {/* Logo */}
-        <h1 className="text-white font-bold">Dev shop</h1>
+        <h1 className="text-white font-bold shadow-md  text-2xl">Dev shop</h1>
 
         <div className="flex justify-between w-[60%]">
           <ul className="hidden md:flex sm:flex gap-6 text-white items-center">
@@ -64,7 +64,7 @@ export const Navbar = () => {
             <li className="text-white hover:bg-cyan-700 transition rounded-md duration-300 ease-in-out cursor-pointer p-2">
               <Link to="/" className="flex items-center">
                 <HomeIcon />
-                <span className="ml-1">Home</span>
+                <span className="ml-1 text-xl">Home</span>
               </Link>
             </li>
 
@@ -88,11 +88,11 @@ export const Navbar = () => {
               {cart.length <= 0 ? (
                 <>
                   <Link to="/shopping">
-                    <span className="ml-1">Carrinho</span>
+                    <span className="ml-1 text-xl">Carrinho</span>
                   </Link>
                 </>
               ) : (
-                <span className="ml-1">Carrinho</span>
+                <span className="ml-1 text-xl">Carrinho</span>
               )}
 
               {divItemsCart && (
@@ -120,7 +120,7 @@ export const Navbar = () => {
 
           {/* User logado */}
           <div className="relative hidden md:flex sm:flex text-white cursor-pointer items-center flex-col">
-            <span className="mr-2 text-base">Bem vindo, Bruno</span>
+            <span className="mr-2 text-lg">Bem vindo, Bruno</span>
             <AccountCircleIcon onClick={() => setDivUser(!divUser)} />
           </div>
 
