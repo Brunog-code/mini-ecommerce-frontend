@@ -11,6 +11,8 @@ interface IproductsData {
 }
 
 export const Home = () => {
+
+  //array produtos, simulando database
   const products: IproductsData[] = [
     {
       id: 1,
@@ -135,15 +137,16 @@ export const Home = () => {
     },
   ];
 
+  //estado do filtro de exibicao
   const [filter, setFilter] = useState("all");
 
   //sliders nao repetidos
   const [imgsSlides] = useState(() => {
     const indexSet = new Set<number>(); //set de indices unicos
 
-    while (indexSet.size < 3) {
+    while (indexSet.size < 3) { //preenche o set com numeros aleatorios
       const randomIndex = Math.floor(Math.random() * products.length);
-      indexSet.add(randomIndex);
+      indexSet.add(randomIndex); //adiciona 3 numeros unicos
     }
 
     return Array.from(indexSet).map((i) => ({
