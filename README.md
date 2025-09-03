@@ -40,10 +40,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 📸 Screenshots
 
 ### Home
-![Home Page](https://i.imgur.com/vcWXO91.png)
+![Home Page](https://i.imgur.com/eRbq8YP.png)
 
 ### Home - Navbar lateral
-![Home Page](https://i.imgur.com/NaRjvS9.png)
+![Home Page](https://i.imgur.com/i5V15Jk.png)
 
 ### Carrinho
 ![Carrinho](https://i.imgur.com/HhKo3Yp.png)
