@@ -56,7 +56,7 @@ export const Navbar = () => {
       {/* nav dispositivos >=md */}
       <nav className="h-[100%] flex justify-between items-center px-5">
         {/* Logo */}
-        <h1 className="text-white font-bold shadow-md  text-2xl">Dev shop</h1>
+        <h1 className="text-white font-bold text-2xl">Dev shop</h1>
 
         <div className="flex justify-between w-[60%]">
           <ul className="hidden md:flex sm:flex gap-6 text-white items-center">
@@ -96,7 +96,7 @@ export const Navbar = () => {
               )}
 
               {divItemsCart && (
-                <ul className="absolute top-11 bg-white shadow-lg cursor-pointer text-gray-500 min-w-32 p-2 rounded-md flex flex-col space-y-2">
+                <ul className="absolute top-13 bg-white shadow-lg cursor-pointer text-gray-500 min-w-32 p-2 rounded-md flex flex-col space-y-2">
                   {cart.map((item) => (
                     <li key={item.id} className="flex gap-2">
                       <img
@@ -125,7 +125,7 @@ export const Navbar = () => {
           </div>
 
           {divUser && (
-            <div className="bg-white p-2 shadow-lg cursor-pointer rounded-lg absolute right-15 top-12 flex flex-col">
+            <div className="bg-white p-2 shadow-lg cursor-pointer rounded-lg absolute right-15 top-13 flex flex-col">
               <span className="hover:bg-blue-500/50 text-gray-500 hover:text-white rounded-md p-1 hover:shadow-md">
                 Minha conta
               </span>
@@ -205,7 +205,7 @@ export const Navbar = () => {
                       </span>
                     )}
                   </div>
-                  <span className="ml-1  text-xl">Carrinho</span>
+                  <span className="ml-1 text-xl">Carrinho</span>
                 </Link>
               </li>
             </ul>

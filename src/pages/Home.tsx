@@ -137,6 +137,23 @@ export const Home = () => {
 
   const [filter, setFilter] = useState("all");
 
+  //sliders nao repetidos
+  const [imgsSlides] = useState(() => {
+    const indexSet = new Set<number>(); //set de indices unicos
+
+    while (indexSet.size < 3) {
+      const randomIndex = Math.floor(Math.random() * products.length);
+      indexSet.add(randomIndex);
+    }
+
+    return Array.from(indexSet).map((i) => ({
+      img: products[i].img,
+      title: products[i].title,
+      price: products[i].price,
+    })); //transforma o set em array
+  });
+
+  //filtro de produtos
   const filteredProducts = products.filter((product) => {
     if (filter === "all") return true;
     return product.category === filter;
@@ -146,7 +163,9 @@ export const Home = () => {
 
   return (
     <div className="p-4">
-      <Slider />
+      <div>
+        <Slider imgsSlides={imgsSlides} />
+      </div>
 
       {/* menu produtos */}
       <section className="mb-5 text-gray-500 font-semibold  ">
