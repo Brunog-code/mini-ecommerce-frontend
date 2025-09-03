@@ -38,10 +38,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 📸 Screenshots
 
 ### Home
-![Home Page](./assets/home.png)
+![Home Page](https://imgur.com/vcWXO91)
+
+### Home - Navbar lateral
+![Home Page](https://imgur.com/NaRjvS9)
 
 ### Carrinho
-![Carrinho](./assets/cart.png)
+![Carrinho](https://imgur.com/YjOVoly)
 
 ---
 
