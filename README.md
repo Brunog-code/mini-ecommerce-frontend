@@ -1,69 +1,55 @@
-# React + TypeScript + Vite
+# mini-ecommerce-frontend
+Mini e-commerce frontend que simula uma loja online com duas páginas principais: uma página **Home** com listagem de produtos e opções de filtro por categoria, e uma página **Carrinho de Compras**, onde é possível visualizar os itens adicionados, calcular subtotal, total e o frete com base na API do **ViaCEP**. O layout é responsivo e moderno, pensado para uma boa experiência de navegação.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Tecnologias Utilizadas
 
-Currently, two official plugins are available:
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat-square&logo=html5&logoColor=white) **HTML** para a estruturação das páginas  
+- ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=flat-square&logo=tailwind-css&logoColor=white) **Tailwind CSS** para design responsivo e estilização visual  
+- ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=flat-square&logo=javascript&logoColor=white) **JavaScript / TypeScript** para interatividade, lógica da aplicação e manipulação do carrinho  
+- ![React](https://img.shields.io/badge/React-%2320232a.svg?style=flat-square&logo=react&logoColor=%2361DAFB) **React** para construção de componentes reutilizáveis e gerenciamento de estado
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠️ Ferramentas
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Editor de código**: Visual Studio Code  
+- **Controle de versão**: Git & GitHub  
+- **API externa**: [ViaCEP](https://viacep.com.br/) para cálculo de frete com base no CEP informado pelo usuário  
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🌐 Funcionalidades
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Página **Home** com:
+  - Listagem de produtos com imagem, título, descrição e preço  
+  - Filtro de produtos por categoria  
+  - Layout responsivo para desktop e mobile  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Página **Carrinho de Compras** com:
+  - Visualização de itens adicionados ao carrinho  
+  - Cálculo de **subtotal** e **total**  
+  - Consulta de CEP via API do ViaCEP.
+  - Seleção do tipo de envio (PAC ou SEDEX)  
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📸 Screenshots
+
+### Home
+![Home Page](https://i.imgur.com/vcWXO91.png)
+
+### Home - Navbar lateral
+![Home Page](https://i.imgur.com/NaRjvS9.png)
+
+### Carrinho
+![Carrinho](https://i.imgur.com/HhKo3Yp.png)
+
+---
+
+## 🌐 Link do Projeto
+
+Acesse o projeto clicando no link abaixo:
+
+[🌐 **Mini E-commerce Frontend**](https://brunog-code.github.io/mini-ecommerce-frontend/)
