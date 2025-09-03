@@ -65,7 +65,7 @@ export const Navbar = () => {
         <div className="flex justify-between w-[60%]">
           <ul className="hidden md:flex sm:flex gap-6 text-white items-center">
             {/* Home */}
-            <li className="text-white hover:bg-cyan-700 transition rounded-md duration-300 ease-in-out cursor-pointer p-1">
+            <li className="text-white hover:bg-cyan-700 transition rounded-md duration-300 ease-in-out cursor-pointer p-2">
               <Link to="/" className="flex items-center">
                 <HomeIcon />
                 <span className="ml-1">Home</span>
