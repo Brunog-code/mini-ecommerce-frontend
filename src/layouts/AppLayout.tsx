@@ -8,7 +8,7 @@ export const AppLayout = () => {
       <Navbar />
 
       {/* Conteúdo dinâmico das rotas */}
-      <main className="flex-1 pt-12">
+      <main className="flex-1 pt-14">
         <Outlet />
       </main>
 

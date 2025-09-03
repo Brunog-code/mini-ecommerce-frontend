@@ -49,7 +49,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 rounded-b-lg shadow-lg h-12 w-full z-50 transition-colors duration-300 ${
+      className={`fixed top-0 left-0 rounded-b-lg shadow-lg h-14 w-full z-50 transition-colors duration-300 ${
         scroll ? "bg-cyan-600/80" : "bg-cyan-600"
       }`}
     >
@@ -123,8 +123,8 @@ export const Navbar = () => {
           </ul>
 
           {/* User logado */}
-          <div className="relative hidden md:flex sm:flex  text-white text-2xl cursor-pointer items-center flex-col">
-            <span className="mr-2 text-sm">Bem vindo, Bruno</span>
+          <div className="relative hidden md:flex sm:flex text-white cursor-pointer items-center flex-col">
+            <span className="mr-2 text-base">Bem vindo, Bruno</span>
             <AccountCircleIcon onClick={() => setDivUser(!divUser)} />
           </div>
 
