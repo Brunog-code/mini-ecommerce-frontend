@@ -5,9 +5,7 @@ import { AppRouters } from "./routes";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CartProvider } from "./contexts/CartContext";
 
-const theme = createTheme({
-  // customize se quiser
-});
+const theme = createTheme({});
 
 export function App() {
   return (
