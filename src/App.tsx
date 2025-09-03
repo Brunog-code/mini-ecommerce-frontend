@@ -1,0 +1,20 @@
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import { AppRouters } from "./routes";
+
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { CartProvider } from "./contexts/CartContext";
+
+const theme = createTheme({
+  // customize se quiser
+});
+
+export function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <CartProvider>
+        <RouterProvider router={AppRouters} />
+      </CartProvider>
+    </ThemeProvider>
+  );
+}
