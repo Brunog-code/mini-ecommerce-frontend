@@ -52,4 +52,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Acesse o projeto clicando no link abaixo:
 
-[🌐 **Mini E-commerce Frontend**](https://brunog-code.github.io/mini-ecommerce-frontend/)
+[🌐 **Mini E-commerce Frontend**](https://mini-ecommerce-frontend-three.vercel.app/)
