@@ -1,5 +1,7 @@
 # mini-ecommerce-frontend
-Mini e-commerce frontend que simula uma loja online com duas páginas principais: uma página **Home** com listagem de produtos e opções de filtro por categoria, e uma página **Carrinho de Compras**, onde é possível visualizar os itens adicionados, calcular subtotal, total e o frete com base na API do **ViaCEP**. O layout é responsivo e moderno, pensado para uma boa experiência de navegação.
+Mini e-commerce frontend que simula uma loja online com duas páginas principais: uma página Home com listagem de produtos e opções de filtro por categoria, e uma página Carrinho de Compras, onde é possível visualizar os itens adicionados, calcular subtotal, total e o frete com base na API do ViaCEP. O carrinho de compras persiste os itens no localStorage, mantendo-os mesmo após recarregar a página. O layout é responsivo e moderno, pensado para uma boa experiência de navegação.
+
+---
 
 ## 🚀 Tecnologias Utilizadas
 
