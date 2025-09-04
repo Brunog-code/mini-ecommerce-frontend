@@ -56,7 +56,7 @@ export const Navbar = () => {
       {/* nav dispositivos >=md */}
       <nav className="h-[100%] flex justify-between items-center px-5">
         {/* Logo */}
-        <h1 className="text-white font-bold text-2xl">Dev shop</h1>
+        <h1 className="text-white font-bold text-2xl"><Link to="/">Dev shop</Link></h1>
 
         <div className="flex justify-between w-[60%]">
           <ul className="hidden md:flex  gap-6 text-white items-center">
