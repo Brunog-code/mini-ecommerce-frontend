@@ -11,7 +11,6 @@ interface IproductsData {
 }
 
 export const Home = () => {
-
   //array produtos, simulando database
   const products: IproductsData[] = [
     {
@@ -144,7 +143,8 @@ export const Home = () => {
   const [imgsSlides] = useState(() => {
     const indexSet = new Set<number>(); //set de indices unicos
 
-    while (indexSet.size < 3) { //preenche o set com numeros aleatorios
+    while (indexSet.size < 3) {
+      //preenche o set com numeros aleatorios
       const randomIndex = Math.floor(Math.random() * products.length);
       indexSet.add(randomIndex); //adiciona 3 numeros unicos
     }
@@ -171,8 +171,8 @@ export const Home = () => {
       </div>
 
       {/* menu produtos */}
-      <section className="mb-5 text-gray-500 font-semibold  ">
-        <ul className="w-full border border-gray-400 shadow-md bg-gray-100 p-3 rounded-md overflow-hidden grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <section className="mb-5 font-semibold text-gray-500">
+        <ul className="gap-2 grid grid-cols-2 sm:grid-cols-3 bg-gray-100 shadow-md p-3 border border-gray-400 rounded-md w-full overflow-hidden">
           {categories.map((category) => (
             <li
               className={`hover:bg-blue-500/50 hover:text-white p-1 rounded-md cursor-pointer ${
@@ -191,7 +191,7 @@ export const Home = () => {
       </section>
 
       {/* produtos */}
-      <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <section className="gap-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
         {filteredProducts.map((product) => (
           <CardProduct
             key={product.id}

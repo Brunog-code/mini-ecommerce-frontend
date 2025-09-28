@@ -32,7 +32,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const handleItemsCart = (state: CartItem[], action: Action) => {
     switch (action.type) {
-      case "add":
+      case "add": //adicionar ao carrinho
         const existingItem = state.find((item) => item.id == action.product.id);
 
         if (existingItem) {
@@ -52,14 +52,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         );
 
         return [...state, action.product];
-      case "delete":
+      case "delete": //deletar do carrinho
         const cartItemDeleted = state.filter((item) => item.id !== action.id);
 
         //deletar do localSorage
         localStorage.setItem("cart", JSON.stringify(cartItemDeleted));
         return cartItemDeleted;
 
-      case "decrement":
+      case "decrement": //remover do carrinho
         const decrementItem = state
           .map((item) =>
             item.id == action.id

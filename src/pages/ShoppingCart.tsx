@@ -6,6 +6,7 @@ type ShippingMethod = "PAC" | "SEDEX";
 
 export const ShoppingCart = () => {
   const { cart, removeFromCart, decrementFromCart, addToCart } = useCart();
+
   const [cep, setCep] = useState<string>("");
   const [errorCep, setErrorCep] = useState<boolean>(false);
   const [adress, setAdress] = useState<string>("");
