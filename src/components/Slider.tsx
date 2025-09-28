@@ -9,7 +9,7 @@ interface ISliderProps {
 
 export const Slider = ({ imgsSlides }: ISliderProps) => {
   return (
-    <div className="max-w-[800px] m-0 mx-auto border border-gray-300 mb-2 rounded-md">
+    <div className="m-0 mx-auto mb-2 border border-gray-300 rounded-md max-w-[800px]">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={50}
@@ -24,14 +24,14 @@ export const Slider = ({ imgsSlides }: ISliderProps) => {
       >
         {imgsSlides.map((slide) => (
           <SwiperSlide>
-            <div className="h-[300px] flex flex-col gap-4 sm:flex-row md:flex-row sm:justify-center md:justify:center justify-start sm:gap-10  md:gap-4 items-center">
+            <div className="flex sm:flex-row md:flex-row flex-col justify-start sm:justify-center items-center gap-4 sm:gap-10 md:gap-4 h-[300px] md:justify:center">
               <img
                 src={slide.img}
                 alt="Imagem 1"
                 className="h-[60%] sm:h-full md:h-full object-contain"
               />
               <div className="flex flex-col text-gray-500">
-                <span className="rounded-md p-2 text-2xl bg-orange-500 text-white">
+                <span className="bg-orange-500 p-1 rounded-md text-white text-2xl">
                   {slide.title}
                 </span>
                 <span className="self-end font-semibold">

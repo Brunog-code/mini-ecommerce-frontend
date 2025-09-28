@@ -49,7 +49,7 @@ export const Home = () => {
       id: 5,
       title: "Teclado Mecânico",
       price: 449,
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrFUSCPxgCO2atkREsIGqCPJIcdEk3mmtZNUEdMsJtcijghY7JP_r9pcsrVGfDz6fYrXc&usqp=CAU",
+      img: "https://keychronbrasil.com.br/cdn/shop/files/Keychron-K7-Max-QMK-VIA-Wireless-Custom-Mechanical-Keyboard-65-Percent-Layout-for-Mac-Windows-Linux-Gateron-Low-Profile-Brown_1800x1800.jpg?v=1724443350",
       description: "Teclado mecânico com switches silenciosos.",
       category: "Periféricos",
     },
