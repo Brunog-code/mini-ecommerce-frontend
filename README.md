@@ -47,7 +47,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ![Home Page](https://i.imgur.com/i5V15Jk.png)
 
 ### Carrinho
-![Carrinho](https://i.imgur.com/HhKo3Yp.png)
+![Carrinho](https://i.imgur.com/6fHjOel.png)
 
 ---
 
