@@ -34,7 +34,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   - Cálculo de **subtotal** e **total**
   - Cálculo fictício do frete informado. 
   - Consulta de CEP via API do ViaCEP.
-  - Seleção do tipo de envio (PAC ou SEDEX)  
+  - Seleção do tipo de envio (PAC ou SEDEX)
+
+Simulação de usuário logado: o site já assume que um usuário está logado, permitindo adicionar produtos ao carrinho sem necessidade de autenticação real.
 
 ---
 
