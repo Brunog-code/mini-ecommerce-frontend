@@ -18,7 +18,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - **Editor de código**: Visual Studio Code  
 - **Controle de versão**: Git & GitHub  
-- **API externa**: [ViaCEP](https://viacep.com.br/) para cálculo de frete com base no CEP informado pelo usuário  
+- **API externa**: [ViaCEP](https://viacep.com.br/) para consulta do endereço de entrega.
 
 ---
 
@@ -31,7 +31,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - Página **Carrinho de Compras** com:
   - Visualização de itens adicionados ao carrinho  
-  - Cálculo de **subtotal** e **total**  
+  - Cálculo de **subtotal** e **total**
+  - Cálculo fictício do frete informado. 
   - Consulta de CEP via API do ViaCEP.
   - Seleção do tipo de envio (PAC ou SEDEX)  
 
