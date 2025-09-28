@@ -1,4 +1,5 @@
 import { createContext, useReducer, type ReactNode } from "react";
+import { toast } from "sonner";
 
 interface CartItem {
   id: number;
@@ -12,7 +13,7 @@ interface CartItem {
 
 export interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: CartItem) => void; // recebe o item completo, incluindo description e quantity
+  addToCart: (item: CartItem) => void; //recebe o item completo, incluindo description e quantity
   removeFromCart: (id: number) => void;
 }
 
@@ -67,10 +68,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (product: CartItem) => {
     dispatch({ type: "add", product });
+    toast.success("Produto adicionado ao carrinho!");
   };
 
   const removeFromCart = (id: number) => {
     dispatch({ type: "delete", id: id });
+    toast.success("Produto removido do carrinho!");
   };
 
   return (

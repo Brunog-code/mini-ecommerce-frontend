@@ -30,7 +30,7 @@ export const ShoppingCart = () => {
       return;
     }
 
-    setErrorCep(false); // reseta o erro caso tenha digitado algo
+    setErrorCep(false); //reseta o erro caso tenha digitado algo
 
     try {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
@@ -45,9 +45,12 @@ export const ShoppingCart = () => {
 
       setAdress(formatedAndress);
 
+      const pacValue = Math.floor(Math.random() * 25) + 5;
+      const sedexValue = pacValue + Math.floor(Math.random() * 20) + 10;
+
       setShippingValues({
-        PAC: Math.floor(Math.random() * 25) + 10,
-        SEDEX: Math.floor(Math.random() * 45) + 20,
+        PAC: pacValue,
+        SEDEX: sedexValue,
       });
     } catch (error) {
       if (error instanceof Error) {
@@ -64,12 +67,12 @@ export const ShoppingCart = () => {
   return (
     <div className="p-4">
       <section className="flex flex-col justify-center items-center">
-        <h1 className="text-gray-600 text-2xl font-semibold mb-4">
+        <h1 className="mb-4 font-semibold text-gray-600 text-2xl">
           Itens no carrinho
         </h1>
         {cart.length > 0 ? (
           <>
-            <div className="w-full md:w-[80%] sm:w-[90%]">
+            <div className="w-full sm:w-[90%] md:w-[80%]">
               {cart.map((item) => (
                 <CartItemCard
                   key={item.id}
@@ -84,10 +87,10 @@ export const ShoppingCart = () => {
               ))}
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between w-full mt-5 px-4 mb-5">
+            <div className="flex md:flex-row flex-col justify-between mt-5 mb-5 px-4 w-full">
               <div className="flex flex-col md:mr-4">
-                <div className="mb-4 p-2 rounded-md border border-gray-300">
-                  <p className="font-semibold text-gray-600 mb-2">
+                <div className="mb-4 p-2 border border-gray-300 rounded-md">
+                  <p className="mb-2 font-semibold text-gray-600">
                     Calcular frete
                   </p>
                   <div>
@@ -96,7 +99,7 @@ export const ShoppingCart = () => {
                       className="flex gap-2"
                     >
                       <input
-                        className="border border-gray-400 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-cyan-300 placeholder-gray-400"
+                        className="px-2 py-1 border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-cyan-300 placeholder-gray-400"
                         type="text"
                         placeholder="Digite o CEP"
                         onChange={(e) => setCep(e.target.value)}
@@ -104,7 +107,7 @@ export const ShoppingCart = () => {
                       />
                       <button
                         type="submit"
-                        className="bg-blue-600 p-2 rounded text-white cursor-pointer hover:bg-blue-700"
+                        className="bg-blue-600 hover:bg-blue-700 p-2 rounded text-white cursor-pointer"
                       >
                         Calcular
                       </button>
@@ -112,21 +115,21 @@ export const ShoppingCart = () => {
                   </div>
                 </div>
                 {errorCep && (
-                  <p className="bg-red-300/50 p-2 text-gray-500 rounded-md">
+                  <p className="bg-red-300/50 p-2 rounded-md text-gray-500">
                     Erro ao consultar o CEP informado
                   </p>
                 )}
                 {adress && !errorCep && (
-                  <div className="flex flex-col text-gray-500 mb-4 p-2 rounded-md border border-gray-300">
-                    <span className="text-gray-600 font-semibold  mb-2">
+                  <div className="flex flex-col mb-4 p-2 border border-gray-300 rounded-md text-gray-500">
+                    <span className="mb-2 font-semibold text-gray-600">
                       Frete
                     </span>
                     <p>
                       <span className="font-semibold">Envio para:</span>{" "}
                       {adress}
                     </p>
-                    <div className="mt-2 bg-gray-100 p-2 rounded-md ">
-                      <p className="text-gray-600 font-semibold">
+                    <div className="bg-gray-100 mt-2 p-2 rounded-md">
+                      <p className="font-semibold text-gray-600">
                         Opções de envio:
                       </p>
                       <div className="flex gap-5">
@@ -182,10 +185,10 @@ export const ShoppingCart = () => {
                 )}
               </div>
 
-              <div className="mt-5 md:mt-0 md:w-[50%]  flex flex-col text-start">
-                <p className="font-bold text-gray-600 mb-2">Totais</p>
-                <div className="flex flex-col w-full gap-1">
-                  <div className="flex justify-between w-full bg-gray-300 p-2 rounded-md">
+              <div className="flex flex-col mt-5 md:mt-0 md:w-[50%] text-start">
+                <p className="mb-2 font-bold text-gray-600">Totais</p>
+                <div className="flex flex-col gap-1 w-full">
+                  <div className="flex justify-between bg-gray-300 p-2 rounded-md w-full">
                     <span>Subtotal</span>
                     <span>
                       {new Intl.NumberFormat("pt-BR", {
@@ -194,7 +197,7 @@ export const ShoppingCart = () => {
                       }).format(subTotalCart)}
                     </span>
                   </div>
-                  <div className="flex justify-between w-full font-semibold bg-gray-200 p-2 rounded-md">
+                  <div className="flex justify-between bg-gray-200 p-2 rounded-md w-full font-semibold">
                     <span>Total</span>
                     <span>
                       {new Intl.NumberFormat("pt-BR", {
@@ -204,7 +207,7 @@ export const ShoppingCart = () => {
                     </span>
                   </div>
                 </div>
-                <button className="bg-blue-600 p-2 rounded text-white cursor-pointer mt-2 hover:bg-blue-700">
+                <button className="bg-blue-600 hover:bg-blue-700 mt-2 p-2 rounded text-white cursor-pointer">
                   Continuar
                 </button>
               </div>

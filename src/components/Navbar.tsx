@@ -54,14 +54,16 @@ export const Navbar = () => {
       }`}
     >
       {/* nav dispositivos >=md */}
-      <nav className="h-[100%] flex justify-between items-center px-5">
+      <nav className="flex justify-between items-center px-5 h-[100%]">
         {/* Logo */}
-        <h1 className="text-white font-bold text-2xl"><Link to="/">Dev shop</Link></h1>
+        <h1 className="font-bold text-white text-2xl">
+          <Link to="/">Dev shop</Link>
+        </h1>
 
         <div className="flex justify-between w-[60%]">
-          <ul className="hidden md:flex  gap-6 text-white items-center">
+          <ul className="hidden md:flex items-center gap-6 text-white">
             {/* Home */}
-            <li className="text-white hover:bg-cyan-700 transition rounded-md duration-300 ease-in-out cursor-pointer p-2">
+            <li className="hover:bg-cyan-700 p-2 rounded-md text-white transition duration-300 ease-in-out cursor-pointer">
               <Link to="/" className="flex items-center">
                 <HomeIcon />
                 <span className="ml-1 text-xl">Home</span>
@@ -70,7 +72,7 @@ export const Navbar = () => {
 
             {/* carrinho */}
             <li
-              className="text-white relativo hover:bg-cyan-700 transition rounded-md duration-300 ease-in-out cursor-pointer p-1 flex items-center"
+              className="flex items-center hover:bg-cyan-700 p-1 rounded-md text-white transition duration-300 ease-in-out relativo"
               onClick={() => {
                 if (cartQuantity > 0) {
                   setDivItemsCart(!divItemsCart);
@@ -80,7 +82,7 @@ export const Navbar = () => {
               <div className="relative flex items-center">
                 <ShoppingCartIcon className="text-white" />
                 {cartQuantity > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="-top-2 -right-2 absolute flex justify-center items-center bg-red-600 rounded-full w-5 h-5 text-white text-xs">
                     {cartQuantity}
                   </span>
                 )}
@@ -88,15 +90,17 @@ export const Navbar = () => {
               {cart.length <= 0 ? (
                 <>
                   <Link to="/shopping">
-                    <span className="ml-1 text-xl">Carrinho</span>
+                    <span className="ml-1 text-xl cursor-pointer">
+                      Carrinho
+                    </span>
                   </Link>
                 </>
               ) : (
-                <span className="ml-1 text-xl">Carrinho</span>
+                <span className="ml-1 text-xl cursor-pointer">Carrinho</span>
               )}
 
               {divItemsCart && (
-                <ul className="absolute top-13 bg-white shadow-lg cursor-pointer text-gray-500 min-w-32 p-2 rounded-md flex flex-col space-y-2">
+                <ul className="top-13 absolute flex flex-col space-y-2 bg-white shadow-lg p-2 rounded-md min-w-32 text-gray-600">
                   {cart.map((item) => (
                     <li key={item.id} className="flex gap-2">
                       <img
@@ -110,7 +114,9 @@ export const Navbar = () => {
                   <hr className="border-gray-300 border-t-2" />
                   <div className="flex justify-center">
                     <Link to="/shopping">
-                      <span className="font-medium">Ver carrinho</span>
+                      <span className="hover:bg-cyan-500/50 p-1 rounded-md font-medium hover:text-white cursor-pointer">
+                        Ver carrinho
+                      </span>
                     </Link>
                   </div>
                 </ul>
@@ -119,17 +125,17 @@ export const Navbar = () => {
           </ul>
 
           {/* User logado */}
-          <div className="relative hidden md:flex  text-white cursor-pointer items-center flex-col">
+          <div className="hidden relative md:flex flex-col items-center text-white cursor-pointer">
             <span className="mr-2 text-lg">Bem vindo, Bruno</span>
             <AccountCircleIcon onClick={() => setDivUser(!divUser)} />
           </div>
 
           {divUser && (
-            <div className="bg-white p-2 shadow-lg cursor-pointer rounded-lg absolute right-15 top-13 flex flex-col">
-              <span className="hover:bg-blue-500/50 text-gray-500 hover:text-white rounded-md p-1 hover:shadow-md">
+            <div className="top-14 right-20 absolute flex flex-col bg-white shadow-lg p-2 rounded-lg cursor-pointer">
+              <span className="hover:bg-blue-500/50 hover:shadow-md p-1 rounded-md text-gray-500 hover:text-white">
                 Minha conta
               </span>
-              <span className="hover:bg-blue-500/50 text-gray-500 hover:text-white rounded-md p-1 hover:shadow-md">
+              <span className="hover:bg-blue-500/50 hover:shadow-md p-1 rounded-md text-gray-500 hover:text-white">
                 Sair
               </span>
             </div>
@@ -138,7 +144,7 @@ export const Navbar = () => {
 
         {/* Botão hamburguer (mobile) */}
         <button
-          className="md:hidden  text-white text-2xl cursor-pointer"
+          className="md:hidden text-white text-2xl cursor-pointer"
           onClick={() => setDrawerOpen(true)}
         >
           ☰
@@ -149,58 +155,58 @@ export const Navbar = () => {
       <AnimatePresence>
         {drawerOpen && (
           <motion.aside
-            initial={{ x: "100%" }} // posição inicial (fora da tela)
-            animate={{ x: 0 }} // posição final (visível)
-            exit={{ x: "100%" }} // posição de saída (sai para direita)
+            initial={{ x: "100%" }} //posição inicial (fora da tela)
+            animate={{ x: 0 }} //posição final (visível)
+            exit={{ x: "100%" }} //posição de saída (sai para direita)
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 w-64 h-full bg-white shadow-lg flex flex-col gap-4 border-1 border-gray-100 rounded-l-lg"
+            className="top-0 right-0 fixed flex flex-col gap-4 bg-white shadow-lg border-1 border-gray-100 rounded-l-lg w-64 h-full"
           >
             <button
-              className="self-start ml-6 text-2xl text-gray-500 cursor-pointer pt-4"
+              className="self-start ml-6 pt-4 text-gray-500 text-2xl cursor-pointer"
               onClick={() => setDrawerOpen(false)}
             >
               <ChevronRightIcon />
             </button>
 
             <div>
-              <div className=" flex flex-col justify-center items-center text-gray-500">
+              <div className="flex flex-col justify-center items-center bg-gray-100/50 rounded-md text-gray-500">
                 <AccountCircleIcon sx={{ fontSize: 60 }} />
                 <span className="text-xl">Bruno Gonçalves</span>
                 <span>bruno@gmail.com</span>
-                <div className="mt-2 flex flex-col justify-center items-center w-full">
-                  <span className="p-1 cursor-pointer text-center w-full hover:bg-blue-500/50 hover:shadow-md hover:text-white text-lg">
+                <div className="flex flex-col justify-center items-center mt-2 w-full">
+                  <span className="hover:bg-blue-500/50 hover:shadow-md p-1 w-full hover:text-white text-lg text-center cursor-pointer">
                     Minha conta
                   </span>
-                  <span className="p-1 cursor-pointer w-full text-center hover:bg-blue-500/50 hover:shadow-md hover:text-white  text-lg">
+                  <span className="hover:bg-blue-500/50 hover:shadow-md p-1 w-full hover:text-white text-lg text-center cursor-pointer">
                     Sair
                   </span>
                 </div>
               </div>
             </div>
-            <hr className="border-gray-300 border-t-2" />
+            <hr className="border-gray-300 border-t-1" />
 
-            <ul className="flex flex-col gap-4 text-lg text-gray-500 items-center">
+            <ul className="flex flex-col items-center gap-4 text-gray-500 text-lg">
               <li
                 onClick={() => setDrawerOpen(false)}
-                className="p-2 cursor-pointer w-full hover:bg-blue-500/50 hover:shadow-md hover:text-white"
+                className="hover:bg-blue-500/50 hover:shadow-md p-2 w-full hover:text-white cursor-pointer"
               >
-                <Link to="/" className="flex items-center justify-center">
+                <Link to="/" className="flex justify-center items-center">
                   <HomeIcon />
                   <span className="ml-1 text-xl">Home</span>
                 </Link>
               </li>
               <li
                 onClick={() => setDrawerOpen(false)}
-                className="p-2 cursor-pointer hover:bg-blue-500/50 hover:text-white w-full hover:shadow-md group  "
+                className="group hover:bg-blue-500/50 hover:shadow-md p-2 w-full hover:text-white cursor-pointer"
               >
                 <Link
                   to="/shopping"
-                  className="flex items-center justify-center"
+                  className="flex justify-center items-center"
                 >
-                  <div className="relative flex items-center ">
-                    <ShoppingCartIcon className="text-gray-500 group-hover:text-white transition " />
+                  <div className="relative flex items-center">
+                    <ShoppingCartIcon className="text-gray-500 group-hover:text-white transition" />
                     {cartQuantity > 0 && (
-                      <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      <span className="-top-2 -right-2 absolute flex justify-center items-center bg-red-600 rounded-full w-5 h-5 text-white text-xs">
                         {cartQuantity}
                       </span>
                     )}
