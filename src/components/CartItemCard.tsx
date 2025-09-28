@@ -84,44 +84,54 @@ export const CartItemCard = ({
       </CardContent>
 
       {/* Botão de excluir */}
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1, pr: 1 }}>
-        {/* Botão de diminuir quantidade */}
-        <IconButton
-          color="primary"
-          onClick={() => decrementFromCart(id)}
-          size="small"
-        >
-          <RemoveIcon />
-        </IconButton>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: "center",
+          gap: 1,
+          pr: 1,
+        }}
+      >
+        {/* Box para os botões de quantidade */}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton
+            color="primary"
+            onClick={() => decrementFromCart(id)}
+            size="small"
+          >
+            <RemoveIcon />
+          </IconButton>
 
-        {/* Quantidade */}
-        <Typography sx={{ minWidth: 20, textAlign: "center" }}>
-          {quantity}
-        </Typography>
+          <Typography sx={{ minWidth: 20, textAlign: "center" }}>
+            {quantity}
+          </Typography>
 
-        {/* Botão de aumentar quantidade */}
-        <IconButton
-          color="primary"
-          onClick={() =>
-            addToCart({
-              id,
-              title,
-              description,
-              img,
-              price,
-              quantity: 1,
-              category: "",
-            })
-          }
-          size="small"
-        >
-          <AddIcon />
-        </IconButton>
+          <IconButton
+            color="primary"
+            onClick={() =>
+              addToCart({
+                id,
+                title,
+                description,
+                img,
+                price,
+                quantity: 1,
+                category: "",
+              })
+            }
+            size="small"
+          >
+            <AddIcon />
+          </IconButton>
+        </Box>
 
-        {/* Botão de deletar rápido */}
-        <IconButton color="error" onClick={() => removeFromCart(id)}>
-          <DeleteIcon />
-        </IconButton>
+        {/* Box para o botão de deletar */}
+        <Box sx={{ mt: { xs: 1, sm: 0 } }}>
+          <IconButton color="error" onClick={() => removeFromCart(id)}>
+            <DeleteIcon />
+          </IconButton>
+        </Box>
       </Box>
     </Card>
   );
