@@ -1,7 +1,7 @@
 import { createContext, useReducer, type ReactNode } from "react";
 import { toast } from "sonner";
 
-interface CartItem {
+export interface CartItem {
   id: number;
   title: string;
   price: number;
@@ -15,6 +15,7 @@ export interface CartContextType {
   cart: CartItem[];
   addToCart: (item: CartItem) => void; //recebe o item completo, incluindo description e quantity
   removeFromCart: (id: number) => void;
+  decrementFromCart: (id: number) => void;
 }
 
 //cria o contexto
@@ -26,7 +27,8 @@ export const CartContext = createContext<CartContextType | undefined>(
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   type Action =
     | { type: "add"; product: CartItem }
-    | { type: "delete"; id: number };
+    | { type: "delete"; id: number }
+    | { type: "decrement"; id: number };
 
   const handleItemsCart = (state: CartItem[], action: Action) => {
     switch (action.type) {
@@ -57,11 +59,24 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         localStorage.setItem("cart", JSON.stringify(cartItemDeleted));
         return cartItemDeleted;
 
+      case "decrement":
+        const decrementItem = state
+          .map((item) =>
+            item.id == action.id
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          )
+          .filter((item) => item.quantity > 0);
+
+        localStorage.setItem("cart", JSON.stringify(decrementItem));
+        return decrementItem;
+
       default:
         return state;
     }
   };
 
+  //state carrinho
   const [cart, dispatch] = useReducer(handleItemsCart, [], () =>
     JSON.parse(localStorage.getItem("cart") || "[]")
   );
@@ -76,8 +91,23 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     toast.success("Produto removido do carrinho!");
   };
 
+  const decrementFromCart = (id: number) => {
+    const item = cart.find((item) => item.id == id);
+    if (!item) return;
+
+    if (item.quantity == 1) {
+      toast.success("Produto removido do carrinho!");
+    } else {
+      toast.success("Quantidade atualizada!");
+    }
+
+    dispatch({ type: "decrement", id: id });
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, decrementFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );

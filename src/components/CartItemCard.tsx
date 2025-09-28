@@ -7,6 +7,10 @@ import {
   Box,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+
+import type { CartItem } from "../contexts/CartContext";
 
 interface ICartItemProps {
   id: number;
@@ -16,6 +20,8 @@ interface ICartItemProps {
   quantity: number;
   price: number;
   removeFromCart: (id: number) => void;
+  decrementFromCart: (id: number) => void;
+  addToCart: (item: CartItem) => void;
 }
 
 export const CartItemCard = ({
@@ -26,6 +32,8 @@ export const CartItemCard = ({
   quantity,
   price,
   removeFromCart,
+  decrementFromCart,
+  addToCart,
 }: ICartItemProps) => {
   return (
     <Card
@@ -57,20 +65,60 @@ export const CartItemCard = ({
         <Typography variant="body2" color="text.secondary">
           {description}
         </Typography>
+
         <Typography variant="body2" mt={1}>
-          Quantidade: {quantity}
-        </Typography>
-        <Typography variant="body2">
-          Preço:{" "}
+          Preço unitário:{" "}
           {new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
           }).format(price)}
         </Typography>
+
+        <Typography variant="body2">
+          Subtotal do item:{" "}
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(quantity * price)}
+        </Typography>
       </CardContent>
 
       {/* Botão de excluir */}
-      <Box sx={{ pr: 1 }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1, pr: 1 }}>
+        {/* Botão de diminuir quantidade */}
+        <IconButton
+          color="primary"
+          onClick={() => decrementFromCart(id)}
+          size="small"
+        >
+          <RemoveIcon />
+        </IconButton>
+
+        {/* Quantidade */}
+        <Typography sx={{ minWidth: 20, textAlign: "center" }}>
+          {quantity}
+        </Typography>
+
+        {/* Botão de aumentar quantidade */}
+        <IconButton
+          color="primary"
+          onClick={() =>
+            addToCart({
+              id,
+              title,
+              description,
+              img,
+              price,
+              quantity: 1,
+              category: "",
+            })
+          }
+          size="small"
+        >
+          <AddIcon />
+        </IconButton>
+
+        {/* Botão de deletar rápido */}
         <IconButton color="error" onClick={() => removeFromCart(id)}>
           <DeleteIcon />
         </IconButton>

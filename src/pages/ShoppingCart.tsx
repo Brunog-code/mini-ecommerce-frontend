@@ -5,7 +5,7 @@ import { useState } from "react";
 type ShippingMethod = "PAC" | "SEDEX";
 
 export const ShoppingCart = () => {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, decrementFromCart, addToCart } = useCart();
   const [cep, setCep] = useState<string>("");
   const [errorCep, setErrorCep] = useState<boolean>(false);
   const [adress, setAdress] = useState<string>("");
@@ -83,6 +83,8 @@ export const ShoppingCart = () => {
                   quantity={item.quantity}
                   price={item.price}
                   removeFromCart={removeFromCart}
+                  decrementFromCart={decrementFromCart}
+                  addToCart={addToCart}
                 />
               ))}
             </div>
@@ -186,7 +188,9 @@ export const ShoppingCart = () => {
               </div>
 
               <div className="flex flex-col mt-5 md:mt-0 md:w-[50%] text-start">
-                <p className="mb-2 font-bold text-gray-600">Totais</p>
+                <p className="mb-2 font-bold text-gray-600">
+                  Totais do carrinho
+                </p>
                 <div className="flex flex-col gap-1 w-full">
                   <div className="flex justify-between bg-gray-300 p-2 rounded-md w-full">
                     <span>Subtotal</span>
