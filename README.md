@@ -55,3 +55,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Acesse o projeto clicando no link abaixo:
 
 [🌐 **Mini E-commerce Frontend**](https://mini-ecommerce-frontend-three.vercel.app/)
+
+--- 
+
+## ⚠️ Aviso
+
+Este é um **projeto fictício desenvolvido apenas para fins de estudo**.  
+As imagens, descrições e preços dos produtos são utilizados apenas de forma **ilustrativa** e **não representam uma loja real**.
