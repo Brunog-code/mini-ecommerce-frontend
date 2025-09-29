@@ -43,10 +43,10 @@ Simulação de usuário logado: o site já assume que um usuário está logado, 
 ## 📸 Screenshots
 
 ### Home
-![Home Page](https://i.imgur.com/eRbq8YP.png)
+![Home Page](https://i.imgur.com/9xAvCmy.png)
 
 ### Home - Navbar lateral
-![Home Page](https://i.imgur.com/i5V15Jk.png)
+![Home Page](https://i.imgur.com/0KTjxn4.png)
 
 ### Carrinho
 ![Carrinho](https://i.imgur.com/6fHjOel.png)
