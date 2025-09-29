@@ -1,6 +1,6 @@
 import { useCart } from "../hooks/useCart";
 import { CartItemCard } from "../components/CartItemCard";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 type ShippingMethod = "PAC" | "SEDEX";
 
@@ -18,9 +18,10 @@ export const ShoppingCart = () => {
     SEDEX: 0,
   });
 
-  const subTotalCart = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
+  //só calcula quando o cart muda
+  const subTotalCart = useMemo(
+    () => cart.reduce((total, item) => total + item.price * item.quantity, 0),
+    [cart]
   );
 
   //consumir api do cep
@@ -63,7 +64,14 @@ export const ShoppingCart = () => {
     }
   };
 
-  const totalCart = subTotalCart + (shipping ? shippingValues[shipping] : 0);
+  //se tiver erro o cep, considera apenas o subtotal
+  const totalCart = useMemo(
+    () =>
+      errorCep
+        ? subTotalCart
+        : subTotalCart + (shipping ? shippingValues[shipping] : 0),
+    [errorCep, subTotalCart, shipping, shippingValues]
+  );
 
   return (
     <div className="p-4">
