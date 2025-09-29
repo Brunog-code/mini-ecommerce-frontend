@@ -170,6 +170,7 @@ export const Home = () => {
         <Slider imgsSlides={imgsSlides} />
       </div>
 
+      <h2 className="mb-1 font-semibold text-gray-500 text-lg">Filtre por:</h2>
       {/* menu produtos */}
       <section className="mb-5 font-semibold text-gray-500">
         <ul className="gap-2 grid grid-cols-2 sm:grid-cols-3 bg-gray-100 shadow-md p-3 border border-gray-400 rounded-md w-full overflow-hidden">
@@ -190,6 +191,9 @@ export const Home = () => {
         </ul>
       </section>
 
+      <h2 className="mb-1 font-semibold text-gray-500 text-xl">
+        Produtos em destaque:
+      </h2>
       {/* produtos */}
       <section className="gap-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
         {filteredProducts.map((product) => (
